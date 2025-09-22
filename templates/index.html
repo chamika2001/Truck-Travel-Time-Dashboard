@@ -48,3 +48,64 @@
     <br>
     <br>
     <br>
+
+        <main>
+        
+
+        <!-- Chart 1: Hourly -->
+        <section class="chart-container">
+            <h2>One Day Average Travel Time (Hourly)</h2>
+            <div class="controls">
+                <button class="btn" onclick="changeDate(-1)">Previous Day</button>
+                <input type="date" id="dateInput1" onchange="loadChart1Data(this.value)" />
+                <button class="btn" onclick="changeDate(1)">Next Day</button>
+                <button class="btn" onclick="setChartType('line', 1)">Line Chart</button>
+                <button class="btn" onclick="setChartType('bar', 1)">Bar Chart</button>
+                <button class="btn" onclick="setChartType('stackedBar', 1)">Stacked Bar</button>
+                <button class="btn" onclick="setChartType('scatter', 1)">Scatterplot</button>
+            </div>
+            <canvas id="chart1" height="100"></canvas>
+        </section>
+
+        <hr>
+
+        <!-- Chart 2: Daily -->
+        <section class="chart-container">
+            <h2>30-Day Average Travel Time (Daily)</h2>
+            <div class="controls">
+                <button class="btn" onclick="changeMonth(-1, 2)">Previous Month</button>
+                <input type="month" id="monthInput2" onchange="loadChart2Data(this.value)" />
+                <button class="btn" onclick="changeMonth(1, 2)">Next Month</button>
+                <button class="btn" onclick="setChartType('line', 2)">Line Chart</button>
+                <button class="btn" onclick="setChartType('bar', 2)">Bar Chart</button>
+                <button class="btn" onclick="setChartType('stackedBar', 2)">Stacked Bar</button>
+                <button class="btn" onclick="setChartType('scatter', 2)">Scatterplot</button>
+            </div>
+            <canvas id="chart2" height="100"></canvas>
+        </section>
+
+        <hr>
+
+        <!-- Chart 3: Weekday -->
+        <section class="chart-container">
+            <h2>Weekday Average Travel Time</h2>
+            <div class="controls">
+                <button class="btn" onclick="changeMonth(-1, 3)">Previous Month</button>
+                <input type="month" id="monthInput3" onchange="loadChart3Data(this.value)" />
+                <button class="btn" onclick="changeMonth(1, 3)">Next Month</button>
+                <button class="btn" onclick="setChartType('line', 3)">Line Chart</button>
+                <button class="btn" onclick="setChartType('bar', 3)">Bar Chart</button>
+                <button class="btn" onclick="setChartType('stackedBar', 3)">Stacked Bar</button>
+                <button class="btn" onclick="setChartType('scatter', 3)">Scatterplot</button>
+            </div>
+            <canvas id="chart3" height="100"></canvas>
+        </section>
+    </main>
+
+    <!-- Loading Indicator and ARIA feedback -->
+    <div id="loading">⏳ Loading data, please wait...</div>
+    <div id="dateFeedback" aria-live="polite" style="position:absolute;left:-9999px;"></div>
+
+    
+    
+    <script src="{{ url_for('static', filename='charts.js') }}"></script>
